@@ -54,6 +54,58 @@
     <div class="consola__cuerpo"></div>
   </div>
 
+  <!-- ===== PANTALLA PRINCIPAL ===== -->
+  <div id="pantalla-principal" class="consola oculto">
+    <div class="consola__pantalla">
+      <div class="cabecera-mascota">
+        <span class="hud-monedas">&#x2605;<span id="contador-monedas">00</span></span>
+        <span id="nombre-mascota" class="nombre-retro">???</span>
+        <span class="hud-vidas">&#x2665;&#x2665;&#x2665;</span>
+      </div>
+
+      <div class="zona-mascota">
+        <img id="imagen-mascota" src="" alt="Mascota" class="mascota-img" />
+      </div>
+
+      <div class="barras-estado">
+        <div class="barra-estado">
+          <span class="barra-estado__icono" title="Hambre">&#x1F344;</span>
+          <progress id="barra-hambre" class="barra-estado__progreso" max="100" value="80"></progress>
+          <span id="texto-hambre" class="barra-estado__numero">80%</span>
+        </div>
+        <div class="barra-estado">
+          <span class="barra-estado__icono" title="Energía">&#x2B50;</span>
+          <progress id="barra-energia" class="barra-estado__progreso" max="100" value="80"></progress>
+          <span id="texto-energia" class="barra-estado__numero">80%</span>
+        </div>
+        <div class="barra-estado">
+          <span class="barra-estado__icono" title="Felicidad">&#x2665;</span>
+          <progress id="barra-felicidad" class="barra-estado__progreso" max="100" value="80"></progress>
+          <span id="texto-felicidad" class="barra-estado__numero">80%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="consola__botones">
+      <button id="boton-alimentar" class="boton boton--accion">&#x1F344; Comer</button>
+      <button id="boton-jugar"     class="boton boton--accion">&#x2605; Jugar</button>
+      <button id="boton-dormir"   class="boton boton--accion">&#x1F4A4; Dormir</button>
+    </div>
+  </div>
+
+  <!-- ===== PANTALLA GAME OVER ===== -->
+  <div id="pantalla-game-over" class="consola oculto">
+    <div class="consola__pantalla consola__pantalla--game-over">
+      <h2 class="titulo-retro titulo-retro--rojo">GAME OVER</h2>
+      <p class="subtitulo-retro">&#x2665; x 0 &nbsp;&#x2014;&nbsp; Insert coin...</p>
+      <div class="zona-mascota">
+        <img id="imagen-game-over" src="" alt="Mascota K.O." class="mascota-img mascota-img--muerta" />
+      </div>
+      <button id="boton-reiniciar" class="boton boton--principal">&#x25BA; CONTINUE?</button>
+    </div>
+    <div class="consola__cuerpo"></div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
