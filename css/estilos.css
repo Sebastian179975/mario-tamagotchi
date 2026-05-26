@@ -290,6 +290,134 @@ body {
 }
 
 /* =========================================
+   BARRAS DE ESTADO
+   ========================================= */
+.barras-estado {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.barra-estado {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.barra-estado__icono {
+  font-size: 0.75rem;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.barra-estado__progreso {
+  flex: 1;
+  height: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--color-pantalla-dim);
+}
+
+.barra-estado__progreso::-webkit-progress-bar {
+  background: rgba(0,0,0,0.5);
+  border-radius: 5px;
+}
+
+#barra-hambre::-webkit-progress-value {
+  background: linear-gradient(90deg, #c84800, var(--color-barra-hambre));
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--color-barra-hambre);
+  transition: width 0.4s ease;
+}
+#barra-hambre::-moz-progress-bar { background: var(--color-barra-hambre); }
+
+#barra-energia::-webkit-progress-value {
+  background: linear-gradient(90deg, #b89800, var(--color-barra-energia));
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--color-barra-energia);
+  transition: width 0.4s ease;
+}
+#barra-energia::-moz-progress-bar { background: var(--color-barra-energia); }
+
+#barra-felicidad::-webkit-progress-value {
+  background: linear-gradient(90deg, #8b0000, var(--color-barra-felicidad));
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--color-barra-felicidad);
+  transition: width 0.4s ease;
+}
+#barra-felicidad::-moz-progress-bar { background: var(--color-barra-felicidad); }
+
+.barra-estado__numero {
+  color: var(--color-pantalla-texto);
+  font-size: 0.62rem;
+  width: 30px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   BOTONES DE ACCIÓN
+   ========================================= */
+.consola__botones {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 14px;
+  gap: 8px;
+}
+
+.boton {
+  background: var(--color-boton);
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--fuente-retro);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  padding: 9px 0;
+  text-transform: uppercase;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  box-shadow: 0 4px 0 #0a2a6e;
+}
+
+.boton--principal {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 10px;
+  letter-spacing: 0.18em;
+  background: var(--color-carcasa-oscuro);
+  box-shadow: 0 4px 0 #4a0000;
+}
+
+.boton--principal:hover { background: #a00000; }
+
+.boton--accion { flex: 1; }
+
+.boton:hover { background: var(--color-boton-hover); }
+
+.boton:active {
+  background: var(--color-boton-activo);
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #0a2a6e;
+}
+
+.boton--principal:active { box-shadow: 0 1px 0 #4a0000; }
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* =========================================
    UTILIDADES
    ========================================= */
 .oculto {
