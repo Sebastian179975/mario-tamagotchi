@@ -148,6 +148,148 @@ body {
 }
 
 /* =========================================
+   HUD (monedas + vidas)
+   ========================================= */
+.cabecera-mascota {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hud-monedas,
+.hud-vidas {
+  color: var(--color-pantalla-texto);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   FORMULARIO DE ADOPCIÓN
+   ========================================= */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.formulario__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formulario__etiqueta {
+  color: var(--color-pantalla-texto);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.formulario__input {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--color-pantalla-dim);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: var(--fuente-retro);
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.08em;
+}
+
+.formulario__input:focus {
+  border-color: var(--color-pantalla-texto);
+  box-shadow: 0 0 8px rgba(248,216,0,0.4);
+}
+
+.formulario__input::placeholder {
+  color: var(--color-pantalla-dim);
+  opacity: 0.7;
+}
+
+.formulario__error {
+  color: var(--color-error);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  min-height: 14px;
+}
+
+/* =========================================
+   SELECTOR DE PERSONAJE
+   ========================================= */
+.selector-personaje {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.personaje-opcion {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--color-pantalla-dim);
+  border-radius: 6px;
+  color: var(--color-pantalla-dim);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 8px;
+  font-family: var(--fuente-retro);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  flex: 1;
+}
+
+.personaje-opcion:hover {
+  border-color: var(--color-pantalla-texto);
+  color: var(--color-pantalla-texto);
+}
+
+.personaje-opcion.seleccionado {
+  border-color: var(--color-pantalla-texto);
+  color: var(--color-pantalla-texto);
+  box-shadow: 0 0 10px rgba(248,216,0,0.4);
+}
+
+.personaje-opcion__img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+/* =========================================
+   ZONA DE LA MASCOTA
+   ========================================= */
+.zona-mascota {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-height: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.mascota-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.mascota-img--muerta {
+  filter: grayscale(1) brightness(0.5);
+}
+
+/* =========================================
    UTILIDADES
    ========================================= */
 .oculto {
