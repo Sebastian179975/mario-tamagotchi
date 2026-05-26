@@ -1,0 +1,425 @@
+/* =========================================
+   VARIABLES & RESET
+   ========================================= */
+:root {
+  --color-carcasa:          #e52222;
+  --color-carcasa-oscuro:   #8b0000;
+  --color-carcasa-claro:    #ff6b6b;
+  --color-pantalla-bg:      #1a1a2e;
+  --color-pantalla-texto:   #f8d800;
+  --color-pantalla-dim:     #5c5c8a;
+  --color-boton:            #1565c0;
+  --color-boton-hover:      #1976d2;
+  --color-boton-activo:     #0d47a1;
+  --color-error:            #ff4444;
+  --color-barra-hambre:     #e65c00;
+  --color-barra-energia:    #f8d800;
+  --color-barra-felicidad:  #e52222;
+  --fuente-retro: 'Courier New', Courier, monospace;
+  --radio-consola: 20px;
+  --radio-pantalla: 6px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #5c94fc;
+  background-image:
+    radial-gradient(ellipse 80px 40px at 15% 20%, rgba(255,255,255,0.5) 0%, transparent 70%),
+    radial-gradient(ellipse 60px 30px at 75% 35%, rgba(255,255,255,0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 50px at 50% 10%, rgba(255,255,255,0.3) 0%, transparent 70%);
+  font-family: var(--fuente-retro);
+  padding: 20px;
+}
+
+/* =========================================
+   CONSOLA
+   ========================================= */
+.consola {
+  background: var(--color-carcasa);
+  border-radius: var(--radio-consola);
+  width: 320px;
+  padding: 18px 16px 28px;
+  box-shadow:
+    0 0 0 3px var(--color-carcasa-oscuro),
+    0 0 0 6px var(--color-carcasa-claro),
+    0 16px 50px rgba(0,0,0,0.6),
+    inset 0 2px 4px rgba(255,255,255,0.2);
+  position: relative;
+}
+
+.consola::before {
+  content: 'MARIOGOTCHI \2122';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-carcasa-oscuro);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* =========================================
+   PANTALLA
+   ========================================= */
+.consola__pantalla {
+  background: var(--color-pantalla-bg);
+  border-radius: var(--radio-pantalla);
+  border: 4px solid var(--color-carcasa-oscuro);
+  padding: 12px 12px 10px;
+  min-height: 280px;
+  box-shadow:
+    inset 0 0 16px rgba(0,0,0,0.9),
+    0 0 8px rgba(248,216,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* efecto scanlines CRT */
+.consola__pantalla::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.07) 3px,
+    rgba(0,0,0,0.07) 4px
+  );
+  pointer-events: none;
+  border-radius: var(--radio-pantalla);
+  z-index: 1;
+}
+
+.consola__pantalla--game-over {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* =========================================
+   TIPOGRAFÍA RETRO
+   ========================================= */
+.titulo-retro {
+  color: var(--color-pantalla-texto);
+  font-size: 1.35rem;
+  letter-spacing: 0.25em;
+  text-align: center;
+  text-shadow:
+    0 0 8px var(--color-pantalla-texto),
+    2px 2px 0 rgba(0,0,0,0.8);
+  text-transform: uppercase;
+}
+
+.titulo-retro--rojo {
+  color: var(--color-error);
+  text-shadow: 0 0 12px var(--color-error), 2px 2px 0 rgba(0,0,0,0.8);
+  animation: parpadeo 0.8s step-start infinite;
+}
+
+.subtitulo-retro {
+  color: var(--color-pantalla-dim);
+  font-size: 0.65rem;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nombre-retro {
+  color: var(--color-pantalla-texto);
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px var(--color-pantalla-texto);
+}
+
+/* =========================================
+   HUD (monedas + vidas)
+   ========================================= */
+.cabecera-mascota {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hud-monedas,
+.hud-vidas {
+  color: var(--color-pantalla-texto);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   FORMULARIO DE ADOPCIÓN
+   ========================================= */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.formulario__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formulario__etiqueta {
+  color: var(--color-pantalla-texto);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.formulario__input {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--color-pantalla-dim);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: var(--fuente-retro);
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.08em;
+}
+
+.formulario__input:focus {
+  border-color: var(--color-pantalla-texto);
+  box-shadow: 0 0 8px rgba(248,216,0,0.4);
+}
+
+.formulario__input::placeholder {
+  color: var(--color-pantalla-dim);
+  opacity: 0.7;
+}
+
+.formulario__error {
+  color: var(--color-error);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  min-height: 14px;
+}
+
+/* =========================================
+   SELECTOR DE PERSONAJE
+   ========================================= */
+.selector-personaje {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.personaje-opcion {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--color-pantalla-dim);
+  border-radius: 6px;
+  color: var(--color-pantalla-dim);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 8px;
+  font-family: var(--fuente-retro);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  flex: 1;
+}
+
+.personaje-opcion:hover {
+  border-color: var(--color-pantalla-texto);
+  color: var(--color-pantalla-texto);
+}
+
+.personaje-opcion.seleccionado {
+  border-color: var(--color-pantalla-texto);
+  color: var(--color-pantalla-texto);
+  box-shadow: 0 0 10px rgba(248,216,0,0.4);
+}
+
+.personaje-opcion__img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+/* =========================================
+   ZONA DE LA MASCOTA
+   ========================================= */
+.zona-mascota {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-height: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.mascota-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.mascota-img--muerta {
+  filter: grayscale(1) brightness(0.5);
+}
+
+/* =========================================
+   BARRAS DE ESTADO
+   ========================================= */
+.barras-estado {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.barra-estado {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.barra-estado__icono {
+  font-size: 0.75rem;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.barra-estado__progreso {
+  flex: 1;
+  height: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--color-pantalla-dim);
+}
+
+.barra-estado__progreso::-webkit-progress-bar {
+  background: rgba(0,0,0,0.5);
+  border-radius: 5px;
+}
+
+#barra-hambre::-webkit-progress-value {
+  background: linear-gradient(90deg, #c84800, var(--color-barra-hambre));
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--color-barra-hambre);
+  transition: width 0.4s ease;
+}
+#barra-hambre::-moz-progress-bar { background: var(--color-barra-hambre); }
+
+#barra-energia::-webkit-progress-value {
+  background: linear-gradient(90deg, #b89800, var(--color-barra-energia));
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--color-barra-energia);
+  transition: width 0.4s ease;
+}
+#barra-energia::-moz-progress-bar { background: var(--color-barra-energia); }
+
+#barra-felicidad::-webkit-progress-value {
+  background: linear-gradient(90deg, #8b0000, var(--color-barra-felicidad));
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--color-barra-felicidad);
+  transition: width 0.4s ease;
+}
+#barra-felicidad::-moz-progress-bar { background: var(--color-barra-felicidad); }
+
+.barra-estado__numero {
+  color: var(--color-pantalla-texto);
+  font-size: 0.62rem;
+  width: 30px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   BOTONES DE ACCIÓN
+   ========================================= */
+.consola__botones {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 14px;
+  gap: 8px;
+}
+
+.boton {
+  background: var(--color-boton);
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--fuente-retro);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  padding: 9px 0;
+  text-transform: uppercase;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  box-shadow: 0 4px 0 #0a2a6e;
+}
+
+.boton--principal {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 10px;
+  letter-spacing: 0.18em;
+  background: var(--color-carcasa-oscuro);
+  box-shadow: 0 4px 0 #4a0000;
+}
+
+.boton--principal:hover { background: #a00000; }
+
+.boton--accion { flex: 1; }
+
+.boton:hover { background: var(--color-boton-hover); }
+
+.boton:active {
+  background: var(--color-boton-activo);
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #0a2a6e;
+}
+
+.boton--principal:active { box-shadow: 0 1px 0 #4a0000; }
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* =========================================
+   UTILIDADES
+   ========================================= */
+.oculto {
+  display: none !important;
+}
