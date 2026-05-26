@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mariogotchi</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <!-- ===== PANTALLA DE ADOPCIÓN ===== -->
+  <div id="pantalla-adopcion" class="consola">
+    <div class="consola__pantalla">
+      <h1 class="titulo-retro">MARIOGOTCHI</h1>
+      <p class="subtitulo-retro">&#x2605; It's-a me! &#x2605;</p>
+
+      <form id="formulario-adopcion" class="formulario" novalidate>
+        <div class="formulario__campo">
+          <label for="input-nombre" class="formulario__etiqueta">Nombre:</label>
+          <input
+            type="text"
+            id="input-nombre"
+            class="formulario__input"
+            placeholder="Ej: Mario"
+            maxlength="12"
+            autocomplete="off"
+          />
+          <span id="error-nombre" class="formulario__error" aria-live="polite"></span>
+        </div>
+
+        <div class="formulario__campo">
+          <label class="formulario__etiqueta">Elige tu personaje:</label>
+          <div class="selector-personaje" id="selector-personaje">
+            <button type="button" class="personaje-opcion seleccionado" data-tipo="mario">
+              <img src="assets/mario/normal.svg" alt="Mario" class="personaje-opcion__img" />
+              <span>Mario</span>
+            </button>
+            <button type="button" class="personaje-opcion" data-tipo="luigi">
+              <img src="assets/luigi/normal.svg" alt="Luigi" class="personaje-opcion__img" />
+              <span>Luigi</span>
+            </button>
+            <button type="button" class="personaje-opcion" data-tipo="yoshi">
+              <img src="assets/yoshi/normal.svg" alt="Yoshi" class="personaje-opcion__img" />
+              <span>Yoshi</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="boton boton--principal" id="boton-adoptar">
+          &#x25BA; START GAME!
+        </button>
+      </form>
+    </div>
+    <div class="consola__cuerpo"></div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
