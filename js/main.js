@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   inicializarSelectorPersonaje();
   registrarEventoFormulario();
+  registrarEventosBotonesAccion();
   registrarEventoReiniciar();
 });
 
