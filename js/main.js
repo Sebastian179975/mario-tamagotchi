@@ -1,14 +1,9 @@
-// Sprint 1 — punto de entrada
-// La lógica completa del juego se implementa en Sprint 2.
-
 document.addEventListener('DOMContentLoaded', () => {
   inicializarSelectorPersonaje();
+  registrarEventoFormulario();
+  registrarEventoReiniciar();
 });
 
-/**
- * Marca como seleccionado el personaje pulsado y deselecciona los demás.
- * La opción activa se lee en Sprint 2 al procesar el formulario de adopción.
- */
 function inicializarSelectorPersonaje() {
   const botonesPersonaje = document.querySelectorAll('.personaje-opcion');
 
