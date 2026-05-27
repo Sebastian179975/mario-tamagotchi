@@ -28,6 +28,24 @@ function registrarEventoFormulario() {
   });
 }
 
+// Conecta los tres botones de acción con las funciones de mascota.js
+function registrarEventosBotonesAccion() {
+  document.getElementById('boton-alimentar').addEventListener('click', () => {
+    alimentarMascota();
+    actualizarBarrasDOM();
+  });
+
+  document.getElementById('boton-jugar').addEventListener('click', () => {
+    jugarConMascota();
+    actualizarBarrasDOM();
+  });
+
+  document.getElementById('boton-dormir').addEventListener('click', () => {
+    dormirMascota();
+    actualizarBarrasDOM();
+  });
+}
+
 // Vuelve a la pantalla de adopción y resetea el formulario
 function registrarEventoReiniciar() {
   document.getElementById('boton-reiniciar').addEventListener('click', () => {
