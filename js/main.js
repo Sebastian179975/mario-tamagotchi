@@ -3,7 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
   registrarEventoFormulario();
   registrarEventosBotonesAccion();
   registrarEventoReiniciar();
+  recuperarPartidaGuardada();
 });
+
+// Si hay una partida válida en localStorage la restaura y arranca el loop directamente
+function recuperarPartidaGuardada() {
+  const hayPartidaGuardada = cargarEstadoDesdeStorage();
+  if (!hayPartidaGuardada) return;
+
+  actualizarNombreDOM();
+  actualizarImagenDOM();
+  actualizarBarrasDOM();
+  mostrarPantallaPrincipal();
+  iniciarGameLoop();
+}
 
 function inicializarSelectorPersonaje() {
   const botonesPersonaje = document.querySelectorAll('.personaje-opcion');
