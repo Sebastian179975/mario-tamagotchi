@@ -25,6 +25,7 @@ function registrarEventoFormulario() {
     actualizarImagenDOM();
     actualizarBarrasDOM();
     mostrarPantallaPrincipal();
+    iniciarGameLoop();
   });
 }
 
@@ -50,6 +51,8 @@ function registrarEventosBotonesAccion() {
 function registrarEventoReiniciar() {
   document.getElementById('boton-reiniciar').addEventListener('click', () => {
     document.getElementById('input-nombre').value = '';
+
+    detenerGameLoop();
 
     const botonesPersonaje = document.querySelectorAll('.personaje-opcion');
     botonesPersonaje.forEach((b) => b.classList.remove('seleccionado'));
