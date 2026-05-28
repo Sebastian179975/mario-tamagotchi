@@ -7,6 +7,12 @@ const FELICIDAD_INICIAL = 80;
 const VALOR_MINIMO = 0;
 const VALOR_MAXIMO = 100;
 
+// Game loop — intervalo y decrementos automáticos por tick
+const INTERVALO_GAME_LOOP_MS    = 3000;
+const DECREMENTO_HAMBRE_TICK    = 5;
+const DECREMENTO_ENERGIA_TICK   = 4;
+const DECREMENTO_FELICIDAD_TICK = 3;
+
 // Costes y ganancias de cada acción del jugador
 const GANANCIA_HAMBRE_COMER      = 30;
 const COSTE_HAMBRE_JUGAR         = 10;
