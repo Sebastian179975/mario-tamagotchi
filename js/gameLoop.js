@@ -15,6 +15,7 @@ function ejecutarTick() {
   mascota.felicidad = limitarValor(mascota.felicidad - DECREMENTO_FELICIDAD_TICK);
 
   actualizarBarrasDOM();
+  guardarEstadoEnStorage();
 
   if (mascotaHaMuerto()) {
     procesarMuerteMascota();
@@ -30,5 +31,6 @@ function mascotaHaMuerto() {
 function procesarMuerteMascota() {
   mascota.estaViva = false;
   detenerGameLoop();
+  guardarEstadoEnStorage();
   mostrarPantallaGameOver();
 }
