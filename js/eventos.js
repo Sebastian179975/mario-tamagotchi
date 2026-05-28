@@ -34,16 +34,19 @@ function registrarEventosBotonesAccion() {
   document.getElementById('boton-alimentar').addEventListener('click', () => {
     alimentarMascota();
     actualizarBarrasDOM();
+    guardarEstadoEnStorage();
   });
 
   document.getElementById('boton-jugar').addEventListener('click', () => {
     jugarConMascota();
     actualizarBarrasDOM();
+    guardarEstadoEnStorage();
   });
 
   document.getElementById('boton-dormir').addEventListener('click', () => {
     dormirMascota();
     actualizarBarrasDOM();
+    guardarEstadoEnStorage();
   });
 }
 
@@ -53,6 +56,7 @@ function registrarEventoReiniciar() {
     document.getElementById('input-nombre').value = '';
 
     detenerGameLoop();
+    borrarEstadoDelStorage();
 
     const botonesPersonaje = document.querySelectorAll('.personaje-opcion');
     botonesPersonaje.forEach((b) => b.classList.remove('seleccionado'));
