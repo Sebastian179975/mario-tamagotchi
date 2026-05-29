@@ -7,6 +7,9 @@ const FELICIDAD_INICIAL = 80;
 const VALOR_MINIMO = 0;
 const VALOR_MAXIMO = 100;
 
+// Energía por debajo de este valor activa el sprite cansado automáticamente
+const UMBRAL_ENERGIA_CANSADO = 25;
+
 // Game loop — intervalo y decrementos automáticos por tick
 const INTERVALO_GAME_LOOP_MS    = 3000;
 const DECREMENTO_HAMBRE_TICK    = 5;

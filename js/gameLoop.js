@@ -17,6 +17,10 @@ function ejecutarTick() {
   actualizarBarrasDOM();
   guardarEstadoEnStorage();
 
+  if (!mostrandoSpriteAccion) {
+    actualizarImagenDOM();
+  }
+
   if (mascotaHaMuerto()) {
     procesarMuerteMascota();
   }

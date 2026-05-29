@@ -14,19 +14,29 @@ function actualizarNombreDOM() {
   document.getElementById('nombre-mascota').textContent = mascota.nombre;
 }
 
-function actualizarImagenDOM() {
-  const rutaNormal = 'assets/' + mascota.tipo + '/normal.svg';
-  document.getElementById('imagen-mascota').src = rutaNormal;
+// Devuelve 'cansado' si la energía está bajo el umbral, 'normal' en caso contrario
+function obtenerSpriteBase() {
+  return mascota.energia <= UMBRAL_ENERGIA_CANSADO ? 'cansado' : 'normal';
 }
 
-// Muestra el sprite de acción 1.5s y vuelve al sprite normal
+function actualizarImagenDOM() {
+  document.getElementById('imagen-mascota').src =
+    'assets/' + mascota.tipo + '/' + obtenerSpriteBase() + '.svg';
+}
+
+// Impide que el tick del game loop sobreescriba el sprite mientras dura la animación
+let mostrandoSpriteAccion = false;
+
+// Muestra el sprite de acción 1.5s y vuelve al sprite base (normal o cansado)
 function mostrarSpriteAccion(estado) {
   const imagenMascota = document.getElementById('imagen-mascota');
+  mostrandoSpriteAccion = true;
   imagenMascota.src = 'assets/' + mascota.tipo + '/' + estado + '.svg';
   imagenMascota.classList.add('mascota-img--accion');
 
   setTimeout(() => {
-    imagenMascota.src = 'assets/' + mascota.tipo + '/normal.svg';
+    mostrandoSpriteAccion = false;
+    imagenMascota.src = 'assets/' + mascota.tipo + '/' + obtenerSpriteBase() + '.svg';
     imagenMascota.classList.remove('mascota-img--accion');
   }, 1500);
 }
