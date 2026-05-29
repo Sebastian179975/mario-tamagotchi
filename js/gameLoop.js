@@ -32,5 +32,6 @@ function procesarMuerteMascota() {
   mascota.estaViva = false;
   detenerGameLoop();
   guardarEstadoEnStorage();
+  mostrarSpriteMuerto();
   mostrarPantallaGameOver();
 }

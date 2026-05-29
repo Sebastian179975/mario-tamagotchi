@@ -29,18 +29,21 @@ function procesarAdopcion() {
 function registrarEventosBotonesAccion() {
   document.getElementById('boton-alimentar').addEventListener('click', () => {
     alimentarMascota();
+    mostrarSpriteAccion('comiendo');
     actualizarBarrasDOM();
     guardarEstadoEnStorage();
   });
 
   document.getElementById('boton-jugar').addEventListener('click', () => {
     jugarConMascota();
+    mostrarSpriteAccion('normal');
     actualizarBarrasDOM();
     guardarEstadoEnStorage();
   });
 
   document.getElementById('boton-dormir').addEventListener('click', () => {
     dormirMascota();
+    mostrarSpriteAccion('durmiendo');
     actualizarBarrasDOM();
     guardarEstadoEnStorage();
   });
