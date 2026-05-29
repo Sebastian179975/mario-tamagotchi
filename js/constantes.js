@@ -7,6 +7,23 @@ const FELICIDAD_INICIAL = 80;
 const VALOR_MINIMO = 0;
 const VALOR_MAXIMO = 100;
 
+// Opciones del minijuego Piedra Papel Tijeras
+const OPCIONES_PPT = ['piedra', 'papel', 'tijeras'];
+
+// Resultado para el jugador: gana/pierde/empata según su elección vs CPU
+const TABLA_RESULTADOS_PPT = {
+  piedra:  { piedra: 'empate', papel: 'pierde', tijeras: 'gana' },
+  papel:   { piedra: 'gana',   papel: 'empate', tijeras: 'pierde' },
+  tijeras: { piedra: 'pierde', papel: 'gana',   tijeras: 'empate' },
+};
+
+// Efecto en stats según resultado del minijuego
+const EFECTOS_PPT = {
+  gana:   { felicidad: +35, energia: -10, hambre: -5  },
+  pierde: { felicidad: +5,  energia: -20, hambre: -10 },
+  empate: { felicidad: +15, energia: -15, hambre: -8  },
+};
+
 // Energía por debajo de este valor activa el sprite cansado automáticamente
 const UMBRAL_ENERGIA_CANSADO = 25;
 

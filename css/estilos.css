@@ -438,6 +438,95 @@ body {
 }
 
 /* =========================================
+   MODAL MINIJUEGO
+   ========================================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal__contenido {
+  background: var(--color-pantalla-bg);
+  border: 3px solid var(--color-pantalla-texto);
+  border-radius: 10px;
+  padding: 20px 16px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 0 24px rgba(248,216,0,0.3);
+}
+
+.titulo-retro--pequeno {
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+}
+
+.ppt-eleccion {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 14px 0 4px;
+}
+
+.boton-ppt {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--color-pantalla-dim);
+  border-radius: 8px;
+  color: var(--color-pantalla-texto);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  font-family: var(--fuente-retro);
+  font-size: 1.6rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  flex: 1;
+}
+
+.boton-ppt span {
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.boton-ppt:hover {
+  border-color: var(--color-pantalla-texto);
+  box-shadow: 0 0 10px rgba(248,216,0,0.3);
+}
+
+.ppt-resultado {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ppt-resultado__vs {
+  color: var(--color-pantalla-dim);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.ppt-resultado__veredicto {
+  color: var(--color-pantalla-texto);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 8px var(--color-pantalla-texto);
+}
+
+.ppt-resultado__efecto {
+  color: var(--color-pantalla-dim);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
    UTILIDADES
    ========================================= */
 .oculto {

@@ -34,12 +34,7 @@ function registrarEventosBotonesAccion() {
     guardarEstadoEnStorage();
   });
 
-  document.getElementById('boton-jugar').addEventListener('click', () => {
-    jugarConMascota();
-    mostrarSpriteAccion('normal');
-    actualizarBarrasDOM();
-    guardarEstadoEnStorage();
-  });
+  document.getElementById('boton-jugar').addEventListener('click', abrirMinijuego);
 
   document.getElementById('boton-dormir').addEventListener('click', () => {
     dormirMascota();

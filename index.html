@@ -106,11 +106,32 @@
     <div class="consola__cuerpo"></div>
   </div>
 
+  <!-- ===== MODAL MINIJUEGO PPT ===== -->
+  <div id="modal-minijuego" class="modal oculto">
+    <div class="modal__contenido">
+      <h3 class="titulo-retro titulo-retro--pequeno">MINIJUEGO</h3>
+      <p class="subtitulo-retro">&#x1FAA8; Piedra · Papel · Tijeras &#x2702;&#xFE0F;</p>
+
+      <div id="zona-eleccion" class="ppt-eleccion">
+        <button class="boton-ppt" data-opcion="piedra">&#x1FAA8;<span>Piedra</span></button>
+        <button class="boton-ppt" data-opcion="papel">&#x1F4C4;<span>Papel</span></button>
+        <button class="boton-ppt" data-opcion="tijeras">&#x2702;&#xFE0F;<span>Tijeras</span></button>
+      </div>
+
+      <div id="zona-resultado" class="ppt-resultado oculto">
+        <p id="texto-vs" class="ppt-resultado__vs"></p>
+        <p id="texto-resultado" class="ppt-resultado__veredicto"></p>
+        <p id="texto-efecto" class="ppt-resultado__efecto"></p>
+      </div>
+    </div>
+  </div>
+
   <script src="js/constantes.js"></script>
   <script src="js/mascota.js"></script>
   <script src="js/dom.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/gameLoop.js"></script>
+  <script src="js/minijuego.js"></script>
   <script src="js/eventos.js"></script>
   <script src="js/main.js"></script>
 </body>
