@@ -11,9 +11,7 @@ function recuperarPartidaGuardada() {
   const hayPartidaGuardada = cargarEstadoDesdeStorage();
   if (!hayPartidaGuardada) return;
 
-  actualizarNombreDOM();
-  actualizarImagenDOM();
-  actualizarBarrasDOM();
+  actualizarEstadoCompletoDOM();
   mostrarPantallaPrincipal();
   iniciarGameLoop();
 }

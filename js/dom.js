@@ -20,6 +20,13 @@ function actualizarImagenDOM() {
   document.getElementById('imagen-game-over').src  = rutaImagen;
 }
 
+// Actualiza nombre, imagen y barras en una sola llamada
+function actualizarEstadoCompletoDOM() {
+  actualizarNombreDOM();
+  actualizarImagenDOM();
+  actualizarBarrasDOM();
+}
+
 // --- Funciones de cambio de pantalla ---
 
 function mostrarPantallaAdopcion() {

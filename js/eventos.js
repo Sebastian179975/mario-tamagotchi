@@ -19,9 +19,7 @@ function procesarAdopcion() {
   const tipoSeleccionado = document.querySelector('.personaje-opcion.seleccionado');
 
   inicializarEstadoMascota(inputNombre.value.trim(), tipoSeleccionado.dataset.tipo);
-  actualizarNombreDOM();
-  actualizarImagenDOM();
-  actualizarBarrasDOM();
+  actualizarEstadoCompletoDOM();
   guardarEstadoEnStorage();
   mostrarPantallaPrincipal();
   iniciarGameLoop();
