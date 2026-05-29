@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges" width="64" height="64">
+  <!-- gorra verde -->
+  <rect x="4" y="0" width="7" height="1" fill="#2e7d32"/>
+  <rect x="3" y="1" width="9" height="1" fill="#2e7d32"/>
+  <!-- cara larga luigi -->
+  <rect x="2" y="2" width="11" height="7" fill="#f4a460"/>
+  <!-- cejas bajas -->
+  <rect x="4" y="2" width="3" height="1" fill="#5c3d1e"/>
+  <rect x="9" y="2" width="3" height="1" fill="#5c3d1e"/>
+  <!-- parpados caidos -->
+  <rect x="4" y="3" width="3" height="1" fill="#f4a460"/>
+  <rect x="9" y="3" width="3" height="1" fill="#f4a460"/>
+  <rect x="4" y="4" width="3" height="1" fill="#000"/>
+  <rect x="9" y="4" width="3" height="1" fill="#000"/>
+  <!-- bigote largo -->
+  <rect x="3" y="6" width="4" height="1" fill="#5c3d1e"/>
+  <rect x="8" y="6" width="5" height="1" fill="#5c3d1e"/>
+  <!-- boca triste -->
+  <rect x="5" y="8" width="1" height="1" fill="#5c3d1e"/>
+  <rect x="6" y="7" width="3" height="1" fill="#5c3d1e"/>
+  <rect x="9" y="8" width="1" height="1" fill="#5c3d1e"/>
+  <!-- gota de sudor -->
+  <rect x="1" y="2" width="1" height="1" fill="#5c94fc"/>
+  <rect x="1" y="3" width="1" height="2" fill="#5c94fc"/>
+  <rect x="2" y="4" width="1" height="1" fill="#5c94fc"/>
+  <!-- cuerpo verde -->
+  <rect x="3" y="9" width="10" height="1" fill="#1565c0"/>
+  <rect x="2" y="10" width="12" height="3" fill="#2e7d32"/>
+  <!-- botones amarillos -->
+  <rect x="5" y="11" width="1" height="1" fill="#f8d800"/>
+  <rect x="10" y="11" width="1" height="1" fill="#f8d800"/>
+  <!-- piernas -->
+  <rect x="3" y="13" width="4" height="2" fill="#1565c0"/>
+  <rect x="9" y="13" width="4" height="2" fill="#1565c0"/>
+  <!-- zapatos -->
+  <rect x="2" y="15" width="5" height="1" fill="#5c3d1e"/>
+  <rect x="9" y="15" width="5" height="1" fill="#5c3d1e"/>
+</svg>
