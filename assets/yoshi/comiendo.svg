@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges" width="64" height="64">
+  <!-- cabeza -->
+  <rect x="3" y="0" width="9" height="1" fill="#43a047"/>
+  <rect x="2" y="1" width="11" height="5" fill="#43a047"/>
+  <!-- ojos felices cerrados -->
+  <rect x="4" y="1" width="3" height="1" fill="#000"/>
+  <rect x="8" y="1" width="3" height="1" fill="#000"/>
+  <rect x="3" y="2" width="1" height="1" fill="#000"/>
+  <rect x="11" y="2" width="1" height="1" fill="#000"/>
+  <!-- nariz -->
+  <rect x="10" y="3" width="3" height="2" fill="#ef9a9a"/>
+  <!-- boca abierta comiendo -->
+  <rect x="4" y="5" width="7" height="2" fill="#000"/>
+  <rect x="5" y="6" width="5" height="1" fill="#c0392b"/>
+  <!-- corazones -->
+  <rect x="0" y="0" width="1" height="1" fill="#e52222"/>
+  <rect x="1" y="1" width="1" height="1" fill="#e52222"/>
+  <rect x="0" y="2" width="2" height="1" fill="#e52222"/>
+  <rect x="14" y="0" width="1" height="1" fill="#e52222"/>
+  <rect x="15" y="1" width="1" height="1" fill="#e52222"/>
+  <rect x="14" y="2" width="2" height="1" fill="#e52222"/>
+  <!-- cuerpo -->
+  <rect x="3" y="7" width="9" height="4" fill="#43a047"/>
+  <rect x="4" y="8" width="7" height="3" fill="#ffffff"/>
+  <!-- patas -->
+  <rect x="2" y="11" width="4" height="2" fill="#43a047"/>
+  <rect x="10" y="11" width="4" height="2" fill="#43a047"/>
+  <!-- pies -->
+  <rect x="1" y="13" width="5" height="2" fill="#e65c00"/>
+  <rect x="10" y="13" width="5" height="2" fill="#e65c00"/>
+</svg>
