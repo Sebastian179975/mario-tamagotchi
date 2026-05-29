@@ -1,32 +1,28 @@
-// Valida el formulario, inicializa la mascota y lanza la pantalla de juego
+// Registra el submit del formulario y delega en procesarAdopcion
 function registrarEventoFormulario() {
-  const formulario   = document.getElementById('formulario-adopcion');
-  const inputNombre  = document.getElementById('input-nombre');
-  const errorNombre  = document.getElementById('error-nombre');
-
-  formulario.addEventListener('submit', (evento) => {
+  document.getElementById('formulario-adopcion').addEventListener('submit', (evento) => {
     evento.preventDefault();
-
-    if (inputNombre.value.trim() === '') {
-      errorNombre.textContent = '¡Escribe un nombre para tu mascota!';
-      return;
-    }
-
-    errorNombre.textContent = '';
-
-    const tipoSeleccionado = document.querySelector('.personaje-opcion.seleccionado');
-
-    inicializarEstadoMascota(
-      inputNombre.value.trim(),
-      tipoSeleccionado.dataset.tipo
-    );
-
-    actualizarNombreDOM();
-    actualizarImagenDOM();
-    actualizarBarrasDOM();
-    mostrarPantallaPrincipal();
-    iniciarGameLoop();
+    procesarAdopcion();
   });
+}
+
+function procesarAdopcion() {
+  const inputNombre = document.getElementById('input-nombre');
+  const errorNombre = document.getElementById('error-nombre');
+
+  if (inputNombre.value.trim() === '') {
+    errorNombre.textContent = '¡Escribe un nombre para tu mascota!';
+    return;
+  }
+
+  errorNombre.textContent = '';
+  const tipoSeleccionado = document.querySelector('.personaje-opcion.seleccionado');
+
+  inicializarEstadoMascota(inputNombre.value.trim(), tipoSeleccionado.dataset.tipo);
+  actualizarEstadoCompletoDOM();
+  guardarEstadoEnStorage();
+  mostrarPantallaPrincipal();
+  iniciarGameLoop();
 }
 
 // Conecta los tres botones de acción con las funciones de mascota.js
@@ -50,18 +46,19 @@ function registrarEventosBotonesAccion() {
   });
 }
 
-// Vuelve a la pantalla de adopción y resetea el formulario
+// Registra el botón reiniciar y delega en procesarReinicio
 function registrarEventoReiniciar() {
-  document.getElementById('boton-reiniciar').addEventListener('click', () => {
-    document.getElementById('input-nombre').value = '';
+  document.getElementById('boton-reiniciar').addEventListener('click', procesarReinicio);
+}
 
-    detenerGameLoop();
-    borrarEstadoDelStorage();
+function procesarReinicio() {
+  detenerGameLoop();
+  borrarEstadoDelStorage();
 
-    const botonesPersonaje = document.querySelectorAll('.personaje-opcion');
-    botonesPersonaje.forEach((b) => b.classList.remove('seleccionado'));
-    botonesPersonaje[0].classList.add('seleccionado');
+  document.getElementById('input-nombre').value = '';
+  const botonesPersonaje = document.querySelectorAll('.personaje-opcion');
+  botonesPersonaje.forEach((b) => b.classList.remove('seleccionado'));
+  botonesPersonaje[0].classList.add('seleccionado');
 
-    mostrarPantallaAdopcion();
-  });
+  mostrarPantallaAdopcion();
 }
