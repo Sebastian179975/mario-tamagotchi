@@ -15,9 +15,24 @@ function actualizarNombreDOM() {
 }
 
 function actualizarImagenDOM() {
-  const rutaImagen = 'assets/' + mascota.tipo + '/normal.svg';
-  document.getElementById('imagen-mascota').src    = rutaImagen;
-  document.getElementById('imagen-game-over').src  = rutaImagen;
+  const rutaNormal = 'assets/' + mascota.tipo + '/normal.svg';
+  document.getElementById('imagen-mascota').src = rutaNormal;
+}
+
+// Muestra el sprite de acción 1.5s y vuelve al sprite normal
+function mostrarSpriteAccion(estado) {
+  const imagenMascota = document.getElementById('imagen-mascota');
+  imagenMascota.src = 'assets/' + mascota.tipo + '/' + estado + '.svg';
+  imagenMascota.classList.add('mascota-img--accion');
+
+  setTimeout(() => {
+    imagenMascota.src = 'assets/' + mascota.tipo + '/normal.svg';
+    imagenMascota.classList.remove('mascota-img--accion');
+  }, 1500);
+}
+
+function mostrarSpriteMuerto() {
+  document.getElementById('imagen-game-over').src = 'assets/' + mascota.tipo + '/muerto.svg';
 }
 
 // Actualiza nombre, imagen y barras en una sola llamada

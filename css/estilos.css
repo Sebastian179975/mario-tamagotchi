@@ -283,10 +283,16 @@ body {
   height: 72px;
   object-fit: contain;
   image-rendering: pixelated;
+  animation: flotar 1.4s ease-in-out infinite;
 }
 
 .mascota-img--muerta {
   filter: grayscale(1) brightness(0.5);
+  animation: none;
+}
+
+.mascota-img--accion {
+  animation: sacudir 0.4s ease forwards;
 }
 
 /* =========================================
@@ -415,6 +421,20 @@ body {
 @keyframes parpadeo {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes sacudir {
+  0%   { transform: translateX(0) rotate(0deg); }
+  20%  { transform: translateX(-6px) rotate(-5deg); }
+  40%  { transform: translateX(6px)  rotate(5deg); }
+  60%  { transform: translateX(-4px) rotate(-3deg); }
+  80%  { transform: translateX(4px)  rotate(3deg); }
+  100% { transform: translateX(0) rotate(0deg); }
 }
 
 /* =========================================
