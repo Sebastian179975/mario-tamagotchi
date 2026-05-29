@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   registrarEventoFormulario();
   registrarEventosBotonesAccion();
   registrarEventoReiniciar();
+  registrarEventosMinijuego();
   recuperarPartidaGuardada();
 });
 
